@@ -28,3 +28,22 @@ exports.createEmployee = async (req, res) => {
     });
   }
 };
+
+exports.listAllEmployees = async (req, res) => {
+  try {
+    const employees = await Employee.find({});
+
+    if (!employees) {
+      return res.status(400).json({
+        message: 'Error: Employees not found!',
+      });
+    } else {
+      return res.status(200).send({ message: 'List Employees', employees });
+    }
+  } catch (error) {
+    return res.status(500).send({
+      message: 'Error: Employee not created!',
+      error,
+    });
+  }
+};

@@ -11,4 +11,7 @@ const employeeController = require('../controllers/employee.controller');
 // (POST): localhost:3000/api/v1/employees
 router.post('/employees', employeeController.createEmployee);
 
+// (GET): localhost:3000/api/v1/employees
+router.get('/employees', employeeController.listAllEmployees);
+
 module.exports = router;
