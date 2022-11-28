@@ -2,13 +2,17 @@
   "name": "employee-api",
   "version": "1.0.0",
   "description": "A MEAN Stack Application for Employee Management",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "nodemon",
     "lint": "eslint --ext .js -f ./node_modules/eslint-friendly-formatter . --fix",
-    "prepush": "npm run lint",
     "start": "node server.js",
-    "prepare": "husky install"
+    "prepare": "husky install .config/husky"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint"
+    }
   },
   "keywords": [
     "nodejs",
