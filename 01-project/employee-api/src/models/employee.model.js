@@ -5,8 +5,6 @@
  * author: Glaucia Lemos <@glaucia_lemos86>
  */
 
-const mongoose = require('mongoose');
-
 /**
  * Employee Schema
  *
@@ -17,7 +15,11 @@ const mongoose = require('mongoose');
  * collection: employees
  */
 
-const employeeSchema = mongoose.Schema(
+const mongoose = require('mongoose');
+
+const Schema = mongoose.Schema;
+
+const employeeSchema = Schema(
   {
     firstName: { type: String, required: true, maxlength: 100 },
     lastName: { type: String, required: true, maxlength: 100 },
