@@ -12,10 +12,19 @@ exports.createEmployee = async (req, res) => {
     const newEmployee = new Employee(req.body);
     const employee = await newEmployee.save();
 
-    res
-      .status(201)
-      .send({ message: 'Employee successfully created!', employee });
+    if (!employee) {
+      return res.status(400).json({
+        message: 'Error: Employee not created!',
+      });
+    } else {
+      return res
+        .status(201)
+        .send({ message: 'Employee created successfully!', employee });
+    }
   } catch (error) {
-    res.status(500).send({ message: 'Error creating employee!', error });
+    return res.status(500).send({
+      message: 'Error: Employee not created!',
+      error,
+    });
   }
 };
