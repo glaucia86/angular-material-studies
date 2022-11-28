@@ -7,8 +7,23 @@
 
 const express = require('express');
 const cors = require('cors');
+const mongoose = require('mongoose');
 
 const app = express();
+
+const localDatabase = require('./config/database');
+
+mongoose.Promise = global.Promise;
+
+mongoose.connect(localDatabase.local.localUrl, { useNewUrlParser: true }).then(
+  () => {
+    console.log('Database was connected successfully!');
+  },
+  (err) => {
+    console.log(`Error to connect with the database: ${err}`);
+    process.exit();
+  }
+);
 
 // ==> API's Routes
 const index = require('./routes/index');
