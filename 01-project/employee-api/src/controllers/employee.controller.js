@@ -7,11 +7,15 @@
 
 const Employee = require('../models/employee.model');
 
-// ==> Method responsible for creating a new 'Employee':
 exports.createEmployee = async (req, res) => {
-  const newEmployee = new Employee(req.body);
-  const employee = await newEmployee.save();
-  res
-    .status(201)
-    .send({ message: 'New Employee created successfully!', employee });
+  try {
+    const newEmployee = new Employee(req.body);
+    const employee = await newEmployee.save();
+
+    res
+      .status(201)
+      .send({ message: 'Employee successfully created!', employee });
+  } catch (error) {
+    res.status(500).send({ message: 'Error creating employee!', error });
+  }
 };

@@ -19,12 +19,28 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const employeeSchema = Schema(
+const employeeSchema = new Schema(
   {
-    firstName: { type: String, required: true, maxlength: 100 },
-    lastName: { type: String, required: true, maxlength: 100 },
-    email: { type: String, required: true, maxlength: 150 },
-    phone: { type: Number, required: true, maxlength: 11 },
+    firstName: {
+      type: String,
+      required: true,
+      maxlength: 100,
+    },
+    lastName: {
+      type: String,
+      required: true,
+      maxlength: 100,
+    },
+    email: {
+      type: String,
+      required: true,
+      maxlength: 30,
+    },
+    phone: {
+      type: Number,
+      required: true,
+      maxlength: 11,
+    },
   },
   {
     timestamps: true,
