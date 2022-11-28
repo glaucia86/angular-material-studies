@@ -14,4 +14,13 @@ router.post('/employees', employeeController.createEmployee);
 // (GET): localhost:3000/api/v1/employees
 router.get('/employees', employeeController.listAllEmployees);
 
+// (GET): localhost:3000/api/v1/employees/:id
+router.get('/employees/:id', employeeController.findEmployeeById);
+
+// (PUT): localhost:3000/api/v1/employees/:id
+router.put('/employees/:id', employeeController.updateEmployeeById);
+
+// (DELETE): localhost:3000/api/v1/employees/:id
+router.delete('/employees/:id', employeeController.deleteEmployeeById);
+
 module.exports = router;

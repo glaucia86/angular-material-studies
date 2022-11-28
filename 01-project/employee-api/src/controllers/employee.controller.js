@@ -40,3 +40,59 @@ exports.listAllEmployees = async (req, res) => {
     });
   }
 };
+
+exports.findEmployeeById = async (req, res) => {
+  try {
+    const employee = await Employee.findById(req.params.id);
+
+    if (employee === null) {
+      return res.status(404).send({
+        message: 'This employee not exists!',
+      });
+    } else {
+      return res.status(200).send({ message: 'Employee found!', employee });
+    }
+  } catch (error) {
+    return res.status(500).send({
+      message: 'Error to list an Employee.',
+      error,
+    });
+  }
+};
+
+exports.updateEmployeeById = async (req, res) => {
+  try {
+    if (!req.body) {
+      return res.status(400).send({
+        message: 'These fields cannot be empty!',
+      });
+    }
+
+    const employee = await Employee.findByIdAndUpdate(req.params.id, req.body);
+    return res.status(200).send({ message: 'Employee updated!', employee });
+  } catch (error) {
+    return res.status(500).send({
+      message: 'Error to update an Employee.',
+      error,
+    });
+  }
+};
+
+exports.deleteEmployeeById = async (req, res) => {
+  try {
+    const employee = await Employee.findByIdAndDelete(req.params.id);
+
+    if (employee === null) {
+      return res.status(404).send({
+        message: 'This employee not exists!',
+      });
+    } else {
+      return res.status(200).send({ message: 'Employee deleted!', employee });
+    }
+  } catch (error) {
+    return res.status(500).send({
+      message: 'Error to delete an Employee.',
+      error,
+    });
+  }
+};
