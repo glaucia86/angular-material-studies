@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
-import { ListEmployeeComponent } from './components/list-employee/list-employee.component';
 import { ListEmployeesComponent } from './components/list-employees/list-employees.component';
 
 @NgModule({
@@ -13,7 +12,6 @@ import { ListEmployeesComponent } from './components/list-employees/list-employe
     AppComponent,
     AddEmployeeComponent,
     EditEmployeeComponent,
-    ListEmployeeComponent,
     ListEmployeesComponent
   ],
   imports: [
