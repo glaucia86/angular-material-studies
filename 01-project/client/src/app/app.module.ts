@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,6 +6,8 @@ import { AddEmployeeComponent } from './components/add-employee/add-employee.com
 import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
 import { ListEmployeesComponent } from './components/list-employees/list-employees.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './material.module'
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularMaterialModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
