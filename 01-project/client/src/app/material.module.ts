@@ -65,4 +65,4 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   ],
   providers: [MatDatepickerModule],
 })
-export class MaterialModule { }
+export class AngularMaterialModule { }
