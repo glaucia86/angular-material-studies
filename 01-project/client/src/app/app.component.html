@@ -1,6 +1,31 @@
 <!-- BEGIN: TOOLBAR -->
-<mat-toolbar>
-  <span>My Application</span>
+<mat-toolbar color="primary" class="header">
+  <div>Employee Records</div>
+  <span class="nav-tool-items">
+    <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
+  </span>
 </mat-toolbar>
+<!-- END: TOOLBAR -->
 
-<!-- FINISH: TOOLBAR -->
+<!-- BEGIN: SIDENAV -->
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewPort]="true"
+    [fixedTopGap]>
+    <mat-nav-list>
+      <a mat-list-item routerLinkActive="active" routerLink="/add-employee">
+        <mat-icon>add</mat-icon> Add Employee
+      </a>
+      <a mat-list-item routerLinkActive="active" routerLink="/list-employees">
+        <mat-icon>format_list_bulleted</mat-icon> List Employee
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <!-- END: SIDENAV -->
+
+  <!-- BEGIN: MAIN CONTENT -->
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  <!-- END: MAIN CONTENT -->
+
+</mat-sidenav-container>
