@@ -1,31 +1,30 @@
 <!-- BEGIN: TOOLBAR -->
 <mat-toolbar color="primary" class="header">
-  <div>Employee Records</div>
+  <div>Employee Management</div>
   <span class="nav-tool-items">
     <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
   </span>
 </mat-toolbar>
 <!-- END: TOOLBAR -->
 
-<!-- BEGIN: SIDENAV -->
-<mat-sidenav-container>
-  <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewPort]="true"
+<!-- BEGIN: SIDENAV CONTAINER -->
+<mat-sidenav-container autosize>
+  <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
     [fixedTopGap]>
     <mat-nav-list>
       <a mat-list-item routerLinkActive="active" routerLink="/add-employee">
         <mat-icon>add</mat-icon> Add Employee
       </a>
       <a mat-list-item routerLinkActive="active" routerLink="/list-employees">
-        <mat-icon>format_list_bulleted</mat-icon> List Employee
+        <mat-icon>format_list_bulleted</mat-icon> View Employees
       </a>
     </mat-nav-list>
   </mat-sidenav>
-  <!-- END: SIDENAV -->
 
-  <!-- BEGIN: MAIN CONTENT -->
+  <!-- BEGIN: SIDENAV CONTENT -->
   <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
-  <!-- END: MAIN CONTENT -->
-
+  <!-- END: SIDENAV CONTENT -->
 </mat-sidenav-container>
+<!-- END: SIDENAV CONTAINER -->
