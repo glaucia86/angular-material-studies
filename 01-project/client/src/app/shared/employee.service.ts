@@ -47,7 +47,7 @@ export class EmployeeService {
   getEmployee(id: string): Observable<any> {
     return this
       .http
-      .get(`${this.endpoint}/employees/${id}`)
+      .get(`${this.endpoint}/employees/${id}`, { headers: this.headers })
       .pipe(catchError(this.handleError));
   }
 
@@ -58,7 +58,7 @@ export class EmployeeService {
   updateEmployee(id: string, employee: Employee): Observable<any> {
     return this
       .http
-      .put(`${this.endpoint}/employees/${id}`, employee)
+      .put(`${this.endpoint}/employees/${id}`, employee, { headers: this.headers })
       .pipe(catchError(this.handleError));
   }
 
