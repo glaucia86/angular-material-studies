@@ -7,9 +7,9 @@
  */
 
 export class Employee {
-  _id: String;
-  firstName: String;
-  lastName: String;
-  email: String;
-  phone: Number;
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: number;
 }
