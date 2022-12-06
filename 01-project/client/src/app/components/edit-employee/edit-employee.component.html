@@ -1,1 +1,46 @@
-<p>Edit Employee Page</p>
+<!-- Title group  -->
+<div class="title-group">
+  <h1 class="mat-h1">Edit Employee</h1>
+  <mat-divider fxFlex="1 0"></mat-divider>
+</div>
+
+<!-- Form -->
+<div class="inner-wrapper">
+  <form [formGroup]="employeeForm" (ngSubmit)="updateEmployeeForm()" #resetStudentForm="ngForm" novalidate>
+    <!-- Left block -->
+    <mat-card>
+      <div class="controlers-wrapper">
+        <!-- Name -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="First Name" formControlName="firstName" />
+          <mat-error *ngIf="handleError('firstName', 'required')">
+            You must provide your<strong>First Name</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Email -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Last Name" formControlName="lastName" />
+          <mat-error *ngIf="handleError('lastName', 'required')">
+            You must provide your<strong>Last Name</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Mobile Phone" formControlName="phone" />
+          <mat-error *ngIf="handleError('lastName', 'required')">
+            You must provide your<strong>Mobile Phone</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-card>
+    <!-- Submit & Reset -->
+    <mat-card>
+      <div class="full-wrapper button-wrapper">
+        <div class="button-wrapper">
+          <button mat-flat-button color="warn">Update</button>
+        </div>
+      </div>
+    </mat-card>
+  </form>
+</div>
