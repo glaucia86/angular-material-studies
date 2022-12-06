@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Employee } from './employee';
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import {
   HttpClient,
   HttpHeaders,
