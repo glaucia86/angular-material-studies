@@ -35,7 +35,7 @@ export class AddEmployeeComponent implements OnInit {
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      phone: ['', [Validators.pattern('^[0-9]+$')]],
+      phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
     })
   }
 

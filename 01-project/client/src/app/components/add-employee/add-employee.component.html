@@ -1,1 +1,62 @@
-<p>Add Employee Page</p>
+<!-- BEGIN: TITLE GROUP -->
+<div class="title-group">
+  <h1 class="mat-h1">Add Employee</h1>
+  <mt-divider fxFlex="1 0"></mt-divider>
+</div>
+<!-- END: TITLE GROUP -->
+
+<!-- BEGIN: FORM -->
+<div class="inner-wrapper">
+  <form [formGroup]="employeeForm" (ngSubmit)="submitEmployeeForm()" #resetEmployeeForm="ngForm" novalidate>
+    <!-- BEGIN: LEFT BLOCK -->
+    <mat-card>
+      <div class="controlers-wrapper">
+
+        <!-- BEGIN: FIRST NAME FIELD -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="First Name" formControlName="firstName" />
+          <mat-error *ngIf="handleError('firstName', 'required')">
+            You must provide your <strong>First Name</strong>
+          </mat-error>
+        </mat-form-field>
+        <!-- END: FIRST NAME FIELD -->
+
+        <!-- BEGIN: LAST NAME FIELD -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Last Name" formControlName="lastName" />
+          <mat-error *ngIf="handleError('lastName', 'required')">
+            You must provide your <strong>Last Name</strong>
+          </mat-error>
+        </mat-form-field>
+        <!-- END: LAST NAME FIELD -->
+
+        <!-- BEGIN: EMAIL FIELD -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="E-mail" formControlName="email" />
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="handleError('email', 'required')">
+            You must provide your <strong>E-mail</strong>
+          </mat-error>
+        </mat-form-field>
+        <!-- END: EMAIL FIELD -->
+
+        <!-- BEGIN: PHONE FIELD -->
+        <mat-form-field appearance="fill">
+          <input matInput placeholder="Mobile Phone" formControlName="phone" />
+          <mat-icon matSuffix>phone</mat-icon>
+          <mat-error *ngIf="handleError('phone', 'required')">
+            You must provide your <strong>Phone Number</strong>
+          </mat-error>
+        </mat-form-field>
+        <!-- END: PHONE FIELD -->
+      </div>
+    </mat-card>
+    <!-- END: LEFT BLOCK -->
+    <div class="full-wrapper button-wrapper">
+      <div class="button-wrapper">
+        <button mat-flat-button color="primary">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- END: FORM -->
